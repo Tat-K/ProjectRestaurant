@@ -1,3 +1,9 @@
 from django.contrib import admin
+from webapp.models import Post
 
-# Register your models here.
+
+# class PostAdmin(admin.ModelAdmin):
+#     fields = ['title', 'body']
+
+
+admin.site.register(Post)

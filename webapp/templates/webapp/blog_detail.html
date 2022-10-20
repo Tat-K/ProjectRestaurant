@@ -1,10 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'webapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+<title>Blog Detail</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="The Venue template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'webapp/styles/bootstrap-4.1.2/bootstrap.min.css' %}">
+<link href="{% static 'webapp/plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'webapp/plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webapp/plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webapp/plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link href="{% static 'webapp/plugins/jquery-datepicker/jquery-ui.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'webapp/plugins/jquery-timepicker/jquery.timepicker.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'webapp/styles/blog.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webapp/styles/blog_responsive.css' %}">
 </head>
 <body>
-$END$
-</body>
-</html>
+
+<!-- Home -->
+
+	<div class="home">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'webapp/images/blog.jpg' %}" data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content text-center">
+							<div class="home_subtitle page_subtitle">The Venue</div>
+							<div class="home_title"><h1>Our Blog</h1></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- Blog Detail Post -->
+    <main class="container">
+    <div style="margin: 70px 20px 20px 50px">
+            <img src="{{ post.image.url }} " width="550 px" height="100%" hspace="30" vspace="30" style="float: left; margin-right: 30px" >
+            <div class="blog_post_date"><a>{{ post.created_at|date:"F, Y"}}</a></div>
+        </div>
+        <div style="margin: 10px 10px 10px 50px">
+        <div class="blog_post_title"><a>{{ post.title}}</a></div>
+            <div class="blog_post_info">
+                <ul class="d-flex flex-row align-items-center justify-content-start">
+                    <li>by George Smith</li>
+                    <li>in Lifestyle</li>
+                </ul>
+            </div>
+            <div class="blog_post_text">
+                <p align="justify">{{ post.body }}</p>
+            </div>
+    </div>
+<div align="center">
+<table>
+    <tr>
+        <td>
+            <div class="button load_more_button ml-auto mr-auto trans_200"><a href="{% url 'webapp:blog' %}">Back</a></div>
+        </td>
+        <td><div style="margin: 60px">
+            <div class="button load_more_button ml-auto mr-auto trans_200"><a href="{% url 'webapp:home' %}">Home page</a></div>
+            </div>
+        </td>
+    </tr>
+</table>
+    </div>
+  </main>
+
+<script src="{% static 'webapp/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'webapp/styles/bootstrap-4.1.2/popper.js' %}"></script>
+<script src="{% static 'webapp/styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+<script src="{% static 'webapp/plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'webapp/plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'webapp/plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'webapp/plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'webapp/plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'webapp/plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'webapp/plugins/easing/easing.js' %}"></script>
+<script src="{% static 'webapp/plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'webapp/plugins/jquery-datepicker/jquery-ui.js' %}"></script>
+<script src="{% static 'webapp/plugins/jquery-timepicker/jquery.timepicker.js' %}"></script>
+<script src="{% static 'webapp/js/blog.js' %}"></script>
+
+{% endblock %}
